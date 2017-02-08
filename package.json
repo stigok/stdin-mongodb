@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "event-stream": "^3.3.4",
+    "mongoose": "^4.8.1"
+  }
+}
