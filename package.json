@@ -1,6 +1,13 @@
 {
+  "name": "stdin-mongodb",
+  "bin": "index.js",
+  "private": true,
   "dependencies": {
+    "bluebird": "^3.4.7",
     "event-stream": "^3.3.4",
     "mongoose": "^4.8.1"
+  },
+  "devDependencies": {
+    "standard": "*"
   }
 }
