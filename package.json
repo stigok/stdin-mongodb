@@ -9,5 +9,6 @@
   },
   "devDependencies": {
     "standard": "*"
-  }
+  },
+  "license": "CC0-1"
 }
