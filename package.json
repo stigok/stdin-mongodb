@@ -1,6 +1,8 @@
 {
   "name": "stdin-mongodb",
+  "version": "0.0.1",
   "bin": "index.js",
+  "preferGlobal": true,
   "private": true,
   "dependencies": {
     "bluebird": "^3.4.7",

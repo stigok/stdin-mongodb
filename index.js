@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const es = require('event-stream')
 const execSync = require('child_process').execSync
 
@@ -32,7 +34,7 @@ process.stdin
         .create({
           processName: processName,
           meta: args[1],
-          data: data.toString()
+          data: data
         })
         .then(() => {
           console.log(`Saved message (${data.length} bytes)`)
