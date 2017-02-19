@@ -4,12 +4,12 @@ const es = require('event-stream')
 const execSync = require('child_process').execSync
 
 const args = process.argv.splice(2)
-const processName = args[0]
+const tag = args[0]
 const db = args[1]
 const debug = args.includes('--debug')
 
-if (!processName) {
-  console.error('Missing argument 1: processName')
+if (!tag) {
+  console.error('Missing argument 1: tag')
   process.exit(1)
 }
 
@@ -42,7 +42,7 @@ process.stdin
     if (data.length) {
       api
         .create({
-          processName: processName,
+          tag: tag,
           data: data
         })
         .then(() => {

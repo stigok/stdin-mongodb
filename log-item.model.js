@@ -7,7 +7,7 @@ const schemaOptions = {
 }
 
 const schema = new Schema({
-  processName: {type: String, required: true},
+  tag: {type: String, required: true},
   data: {type: Schema.Types.Mixed, required: true}
 }, schemaOptions)
 
