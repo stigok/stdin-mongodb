@@ -6,6 +6,7 @@ const execSync = require('child_process').execSync
 const args = process.argv.splice(2)
 const processName = args[0]
 const db = args[1]
+const debug = args.includes('--debug')
 
 if (!processName) {
   console.error('Missing argument 1: processName')
@@ -17,14 +18,23 @@ if (!db) {
   process.exit(1)
 }
 
-const clientId = execSync('uname -a')
+const clientId = execSync('printf "%s" "$(whoami)@$(hostname)"')
 console.log(`Using clientId ${clientId}`)
 
 const api = require('./api')({
   clientId: clientId,
   db: db,
-  autoConnect: true
+  autoConnect: false
 })
+
+api.connect()
+  .then(() => {
+    console.log('Connected to database', db)
+  })
+  .catch((err) => {
+    console.error(err.message)
+    process.exit(1)
+  })
 
 process.stdin
   .pipe(es.split())
@@ -37,7 +47,7 @@ process.stdin
           data: data
         })
         .then(() => {
-          console.log(`Saved message (${data.length} bytes)`)
+          if (debug) console.log(`Saved message (${data.length} bytes)`)
           cb()
         })
         .catch(err => {
