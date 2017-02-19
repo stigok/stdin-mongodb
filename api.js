@@ -6,18 +6,8 @@ mongoose.Promise = Promise
 function API (options) {
   this.options = Object.assign({
     clientId: null,
-    db: null,
-    autoConnect: true
+    db: null
   }, options)
-
-  // if (this.options.autoConnect) {
-  //   this.connect()
-  //     .then(function () {
-  //       console.log('Constructor connect success', arguments)
-  //     })
-  //     .tap(() => console.log('Connected to database', this.options.db))
-  //     .catch(() => console.error('Failed to connect to database', this.options.db))
-  // }
 }
 
 API.prototype.connect = function () {
