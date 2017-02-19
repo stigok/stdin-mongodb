@@ -43,7 +43,6 @@ process.stdin
       api
         .create({
           processName: processName,
-          meta: args[1],
           data: data
         })
         .then(() => {
